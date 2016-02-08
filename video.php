@@ -1,7 +1,11 @@
+<?php
+    require "scripts/footer.php";
+    require "scripts/script.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Homework 13</title>
+    <title>Homework 16</title>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="description" content="">
@@ -14,20 +18,9 @@
     <div class="wrapper">
         <header class="h-page">
             <div class="container clearfix">
-                <form>
-                    <input class="search" type="search" placeholder="Поиск"/>
-                </form>
-                <a href="#"><img class="search-icon" src="img/search.png" alt="Search"></a>
-                <nav class="menu">
-                    <ul>
-                        <li><a href="#">Новости</a></li>
-                        <li><a href="#">Рекомендую</a></li>
-                        <li><a href="#">Приглашаю</a></li>
-                        <li><a href="#">Акции</a></li>
-                        <li><a href="#">Контакты</a></li>
-                    </ul>
-                </nav>
-                <a href="#"><img class="bag-icon" src="img/bag.png" alt="Bag"></a>
+
+                <?php require "scripts/header.php";?>
+
             </div>
         </header>
 
@@ -69,16 +62,9 @@
 
         <footer class="f-page">
             <div class="container clearfix">
-                <span class="foot-consult">Сайт независимого консультанта компании</span>
-                <div class="foot-social">
-                    <a href="youtube.com"><img class="foot-social-icon" src="img/youtube.png" alt="Youtube"></a>
-                    <a href="flickr.com"><img class="foot-social-icon" src="img/flickr.png" alt="Flickr"></a>
-                    <a href="vk.com"><img class="foot-social-icon" src="img/vk.png" alt="ВКонтакте"></a>
-                    <a href="odnoklassniki.ru"><img class="foot-social-icon" src="img/od.png" alt="Одноклассники"></a>
-                    <a href="facebook.com"><img class="foot-social-icon" src="img/facebook.png" alt="Facebook"></a>
-                    <a href="twitter.com"><img class="foot-social-icon" src="img/twitter.png" alt="Twitter"></a>
-                </div>
-                <span class="foot-studio">Разработка сайта: <br/> студия www</span>
+
+                <?php echo $footer;?>
+
             </div>
         </footer>
     </div>

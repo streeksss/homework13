@@ -1,13 +1,19 @@
+<?php
+    require "scripts/footer.php";
+    require "scripts/script.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Homework 13</title>
+    <title>Homework 16</title>
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
+
 </head>
 <body>
     <div class="wrapper">
@@ -17,20 +23,7 @@
 
                     <!-- Header -->
 
-                    <form>
-                        <input class="search" type="search" placeholder="Поиск"/>
-                    </form>
-                    <a href="#"><img class="search-icon" src="img/search.png" alt="Search"></a>
-                    <nav class="menu">
-                        <ul>
-                            <li><a href="#">Новости</a></li>
-                            <li><a href="#">Рекомендую</a></li>
-                            <li><a href="#">Приглашаю</a></li>
-                            <li><a href="#">Акции</a></li>
-                            <li><a href="#">Контакты</a></li>
-                        </ul>
-                    </nav>
-                    <a href="#"><img class="bag-icon" src="img/bag.png" alt="Bag"></a>
+                    <?php require "scripts/header.php";?>
 
                     <!-- Buy now -->
 
@@ -51,42 +44,19 @@
                 <div class="fp-news">
                     <div class="container clearfix">
                         <h2 class="fp-title">Новости</h2>
-                        <section class="fp-news-block fp-fb">
-                            <img src="img/news1.jpg" alt="News">
-                            <p class="fp-news-text">
-                                Доктор Нонна на телеканале
-                                "Домашний" в программе
-                                "Спросите Повара"
-                            </p>
-                            <a href="#">Подробнее</a>
-                        </section>
-                        <section class="fp-news-block">
-                            <img src="img/news2.jpg" alt="News">
-                            <p class="fp-news-text">
-                                Доктор Нонна на НТВ в
-                                программе "Наши со Львом
-                                Новоженовым"
-                            </p>
-                            <a href="#">Подробнее</a>
-                        </section>
-                        <section class="fp-news-block">
-                            <img src="img/news3.jpg" alt="News">
-                            <p class="fp-news-text">
-                                Доктор Нонна на телеканале
-                                "Домашний" в программе
-                                "Спросите Повара"
-                            </p>
-                            <a href="#">Подробнее</a>
-                        </section>
-                        <section class="fp-news-block">
-                            <img src="img/news2.jpg" alt="News">
-                            <p class="fp-news-text">
-                                Доктор Нонна на НТВ в
-                                программе "Наши со Львом
-                                Новоженовым"
-                            </p>
-                            <a href="#">Подробнее</a>
-                        </section>
+
+                        <?php
+                            foreach($newsItems as $item) {
+                                    echo "
+                                <section class=\"fp-news-block\">
+                                <img src=".$item['imageSource']."alt=".$item['alt'].">
+                                <p class=\"fp-news-text\">".$item['text']."</p>
+                                <a href=".$item['url'].">Подробнее</a>
+                                </section>
+                                ";
+                            };
+                        ?>
+
                     </div>
                 </div>
 
@@ -109,38 +79,35 @@
                         <div class="fp-recommend-top-buy"><a href="#">Купить</a></div>
                     </div>
                     <div class="fp-recommend-small">
-                        <div class="fp-recommend-shampoo">
-                            <img src="img/shampoo1.jpg" alt="Shampoo">
-                            <a href="#">Шампунь ежедневного пользования</a>
-                            <span class="fp-recommend-shampoo-price">280 грн.</span>
-                        </div>
-                        <div class="fp-recommend-shampoo">
-                            <img src="img/shampoo2.jpg" alt="Shampoo">
-                            <a href="#">Шампунь ежедневного пользования</a>
-                            <span class="fp-recommend-shampoo-price">280 грн.</span>
-                        </div>
-                        <div class="fp-recommend-shampoo">
-                            <img src="img/shampoo3.jpg" alt="Shampoo">
-                            <a href="#">Шампунь ежедневного пользования</a>
-                            <span class="fp-recommend-shampoo-price">280 грн.</span>
-                        </div>
+
+                        <?php
+                            foreach($recommendItems as $item) {
+                                echo "
+                                    <section class=\"fp-recommend-shampoo\">
+                                    <img src=".$item['imageSource']."alt=".$item['alt'].">
+                                    <a href=".$item['url'].">".$item['about']."</a>
+                                    <span class=\"fp-recommend-shampoo-price\">".$item['price']."</span>
+                                    </section>
+                                ";
+                            };
+                        ?>
+
                     </div>
+
                     <div class="fp-recommend-small">
-                        <div class="fp-recommend-shampoo">
-                            <img src="img/shampoo1.jpg" alt="Shampoo">
-                            <a href="#">Шампунь ежедневного пользования</a>
-                            <span class="fp-recommend-shampoo-price">280 грн.</span>
-                        </div>
-                        <div class="fp-recommend-shampoo">
-                            <img src="img/shampoo2.jpg" alt="Shampoo">
-                            <a href="#">Шампунь ежедневного пользования</a>
-                            <span class="fp-recommend-shampoo-price">280 грн.</span>
-                        </div>
-                        <div class="fp-recommend-shampoo">
-                            <img src="img/shampoo3.jpg" alt="Shampoo">
-                            <a href="#">Шампунь ежедневного пользования</a>
-                            <span class="fp-recommend-shampoo-price">280 грн.</span>
-                        </div>
+
+                        <?php
+                            foreach($recommendItems as $item) {
+                                echo "
+                                    <section class=\"fp-recommend-shampoo\">
+                                    <img src=".$item['imageSource']."alt=".$item['alt'].">
+                                    <a href=".$item['url'].">".$item['about']."</a>
+                                    <span class=\"fp-recommend-shampoo-price\">".$item['price']."</span>
+                                    </section>
+                                ";
+                            };
+                        ?>
+
                     </div>
                 </div>
             </div>
@@ -149,7 +116,7 @@
 
             <div class="fp-video">
                 <div class="container clearfix">
-                    <h2 class="fp-title video"><a href="video.html">Телеканал "Теледом"</a></h2>
+                    <h2 class="fp-title video"><a href="video.php">Телеканал "Теледом"</a></h2>
                     <div class="fp-video-block">
                         <div class="fp-video-big">
                             <iframe width="470" height="355" src="https://www.youtube.com/embed/ZQaBcNI_AoM" frameborder="0" allowfullscreen></iframe>
@@ -189,12 +156,12 @@
                         </p>
                         <a href="#">Узнать подробнее</a>
                         <div class="social">
-                            <a href="youtube.com"><img class="social-icon" src="img/youtube.png" alt="Youtube"></a>
-                            <a href="flickr.com"><img class="social-icon" src="img/flickr.png" alt="Flickr"></a>
-                            <a href="vk.com"><img class="social-icon" src="img/vk.png" alt="ВКонтакте"></a>
-                            <a href="odnoklassniki.ru"><img class="social-icon" src="img/od.png" alt="Одноклассники"></a>
-                            <a href="facebook.com"><img class="social-icon" src="img/facebook.png" alt="Facebook"></a>
-                            <a href="twitter.com"><img class="social-icon" src="img/twitter.png" alt="Twitter"></a>
+                            <a href="http://youtube.com"><img class="social-icon" src="img/youtube.png" alt="Youtube"></a>
+                            <a href="http://flickr.com"><img class="social-icon" src="img/flickr.png" alt="Flickr"></a>
+                            <a href="http://vk.com"><img class="social-icon" src="img/vk.png" alt="ВКонтакте"></a>
+                            <a href="http://odnoklassniki.ru"><img class="social-icon" src="img/od.png" alt="Одноклассники"></a>
+                            <a href="http://facebook.com"><img class="social-icon" src="img/facebook.png" alt="Facebook"></a>
+                            <a href="http://twitter.com"><img class="social-icon" src="img/twitter.png" alt="Twitter"></a>
                         </div>
                     </div>
                     <div class="fp-about-us-man">
@@ -208,34 +175,21 @@
             <div class="fp-partners">
                 <div class="container clearfix">
                     <h2 class="fp-title">Мои партнеры по бизнесу</h2>
-                    <section class="fp-partners-block fp-fb">
-                        <img src="img/tanya.jpg" alt="Tanya">
-                        <span class="fp-partners-name">Диорневая Татьяна</span><br/>
-                        <span class="fp-partners-post">Директор</span><br/>
-                        <img src="img/gps.png" alt="From">
-                        <span class="fp-partners-from">Мариуполь</span>
-                    </section>
-                    <section class="fp-partners-block">
-                        <img src="img/masha.jpg" alt="Masha">
-                        <span class="fp-partners-name">Проценко Мария</span><br/>
-                        <span class="fp-partners-post">Директор</span><br/>
-                        <img src="img/gps.png" alt="From">
-                        <span class="fp-partners-from">Донецк</span>
-                    </section>
-                    <section class="fp-partners-block">
-                        <img src="img/tanya.jpg" alt="Tanya">
-                        <span class="fp-partners-name">Диорневая Татьяна</span><br/>
-                        <span class="fp-partners-post">Директор</span><br/>
-                        <img src="img/gps.png" alt="From">
-                        <span class="fp-partners-from">Мариуполь</span>
-                    </section>
-                    <section class="fp-partners-block">
-                        <img src="img/masha.jpg" alt="Masha">
-                        <span class="fp-partners-name">Проценко Мария</span><br/>
-                        <span class="fp-partners-post">Директор</span><br/>
-                        <img src="img/gps.png" alt="From">
-                        <span class="fp-partners-from">Донецк</span>
-                    </section>
+
+                    <?php
+                        foreach($partnersItems as $item) {
+                            echo "
+                                <section class=\"fp-partners-block\">
+                                <img src=".$item['Photo']."alt=".$item['alt'].">
+                                <span class=\"fp-partners-name\">".$item['name']."</span><br/>
+                                <span class=\"fp-partners-post\">".$item['post']."</span><br/>
+                                <img src=\"img/gps.png\" alt=\"From\">
+                                <span class=\"fp-partners-from\">".$item['from']."</span>
+                                </section>
+                            ";
+                        };
+                    ?>
+
                 </div>
             </div>
 
@@ -287,16 +241,9 @@
                         pariatur qui. Animi, commodi inventore.
                     </p>
                 </div>
-                <span class="foot-consult fp">Сайт независимого консультанта компании</span>
-                <div class="foot-social">
-                    <a href="youtube.com"><img class="foot-social-icon" src="img/youtube.png" alt="Youtube"></a>
-                    <a href="flickr.com"><img class="foot-social-icon" src="img/flickr.png" alt="Flickr"></a>
-                    <a href="vk.com"><img class="foot-social-icon" src="img/vk.png" alt="ВКонтакте"></a>
-                    <a href="odnoklassniki.ru"><img class="foot-social-icon" src="img/od.png" alt="Одноклассники"></a>
-                    <a href="facebook.com"><img class="foot-social-icon" src="img/facebook.png" alt="Facebook"></a>
-                    <a href="twitter.com"><img class="foot-social-icon" src="img/twitter.png" alt="Twitter"></a>
-                </div>
-                <span class="foot-studio">Разработка сайта: <br/> студия www</span>
+
+                <?php echo $footer;?>
+
             </div>
         </footer>
     </div>

@@ -1,7 +1,11 @@
+<?php
+    require "scripts/footer.php";
+    require "scripts/script.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Homework 13</title>
+    <title>Homework 16</title>
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="description" content="">
@@ -12,10 +16,11 @@
 <body>
     <div class="wrapper">
         <header class="h-page">
+            <div class="container clearfix">
 
+                <?php require "scripts/header.php";?>
 
-
-
+            </div>
         </header>
 
         <main class="m-page shampoo">
@@ -25,10 +30,10 @@
                     <div class="image"></div>
                     <div class="price">
                         <p>
-                            Раздел: Косметология<br/>
-                            Объем/Вес: 250мл<br/>
-                            Кол-во очков: 14<br/>
-                            Отзывов: 15
+                            <span>Раздел:</span> Косметология<br/>
+                            <span>Объем/Вес:</span> 250мл<br/>
+                            <span>Кол-во очков:</span> 14<br/>
+                            <span>Отзывов:</span> 15
                         </p>
                         <p>
                             <span class="last-price">280 грн.</span> <span class="first-price">344 грн.</span><br/>
@@ -47,7 +52,7 @@
                             в программе. Доктор Нонна на телеканале домашний в программе спросите
                             повара Доктор Нонна на телеканале домашний в программе спросите...
                         </p>
-                        <span>Развернуть</span>
+                        <span><a href="#">Развернуть</a></span>
                     </section>
                     <section class="info-second">
                         <h3>Показания</h3>
@@ -58,7 +63,7 @@
                             в программе. Доктор Нонна на телеканале домашний в программе спросите
                             повара Доктор Нонна на телеканале домашний в программе спросите...
                         </p>
-                        <span>Развернуть</span>
+                        <span><a href="#">Развернуть</a></span>
                     </section>
                 </div>
                 <div class="info-block">
@@ -71,7 +76,7 @@
                             в программе. Доктор Нонна на телеканале домашний в программе спросите
                             повара Доктор Нонна на телеканале домашний в программе спросите...
                         </p>
-                        <span>Развернуть</span>
+                        <span><a href="#">Развернуть</a></span>
                     </section>
                     <section class="info-second">
                         <h3>Способы приминения</h3>
@@ -82,11 +87,36 @@
                             в программе. Доктор Нонна на телеканале домашний в программе спросите
                             повара Доктор Нонна на телеканале домашний в программе спросите...
                         </p>
-                        <span>Развернуть</span>
+                        <span><a href="#">Развернуть</a></span>
                     </section>
                 </div>
             </div>
+
+            <div class="products-watch">
+                <div class="container clearfix">
+
+                    <?php
+                        foreach($watchItems as $item) {
+                            echo "
+                                <section class=\"sp-products-watch\">
+                                <img src=".$item['imageSource']."alt=".$item['alt'].">
+                                <a href=".$item['url'].">".$item['about']."</a>
+                                <span class=\"sp-products-price\">".$item['price']."</span>
+                                </section>
+                                ";
+                        };
+                    ?>
+
+                </div>
+            </div>
         </main>
+        <footer class="f-page">
+            <div class="container clearfix">
+
+                <?php echo $footer;?>
+
+            </div>
+        </footer>
     </div>
 </body>
 </html>
